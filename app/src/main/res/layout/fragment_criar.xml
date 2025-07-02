@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/criar_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_titulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Título da atividade" />
+
+        <EditText
+            android:id="@+id/edit_descricao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Descrição" />
+
+        <EditText
+            android:id="@+id/edit_categoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Categoria" />
+
+        <EditText
+            android:id="@+id/edit_quantidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quantidade Horas"
+            android:inputType="number" />
+
+        <RadioGroup
+            android:id="@+id/radio_group_tipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_horas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Horas" />
+
+            <RadioButton
+                android:id="@+id/radio_minutos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Minutos"
+                android:checked="true" />
+        </RadioGroup>
+
+        <RadioGroup
+            android:id="@+id/status_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <RadioButton
+                android:id="@+id/radio_pendente"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pendente"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/radio_validado"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Validado" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/button_salvar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salvar"
+            android:layout_marginTop="24dp" />
+    </LinearLayout>
+</ScrollView>
