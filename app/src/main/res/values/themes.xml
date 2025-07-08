@@ -1,9 +1,33 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Aula01Lari1711" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <!-- Tema base -->
+    <style name="Base.Theme.AvaliativaN2_MelLari" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Cores principais -->
+        <item name="colorPrimary">@color/verde</item>
+        <item name="colorPrimaryContainer">@color/verde_escuro</item>
+        <item name="colorSecondary">@color/verde</item>
+        <item name="colorSecondaryContainer">@color/verde_escuro</item>
+
+        <!-- Botões -->
+        <item name="buttonStyle">@style/GreenButton</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/verde_escuro</item>
+
+        <!-- Background da toolbar, se usada -->
+        <item name="toolbarStyle">@style/GreenToolbar</item>
     </style>
 
-    <style name="Theme.Aula01Lari1711" parent="Base.Theme.Aula01Lari1711" />
+    <style name="Theme.AvaliativaN2_MelLari" parent="Base.Theme.AvaliativaN2_MelLari" />
+
+    <!-- Estilo de botão verde -->
+    <style name="GreenButton" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">@color/verde</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Estilo da toolbar (caso esteja usando) -->
+    <style name="GreenToolbar" parent="Widget.Material3.Toolbar">
+        <item name="android:background">@color/verde</item>
+        <item name="titleTextColor">@color/white</item>
+    </style>
 </resources>
