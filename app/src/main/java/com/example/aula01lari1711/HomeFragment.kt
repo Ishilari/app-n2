@@ -31,13 +31,37 @@ class HomeFragment : Fragment() {
         if (AtividadeRepository.listaAtividades.isEmpty()) {
             AtividadeRepository.listaAtividades.addAll(
                 listOf(
-                    Atividade("Curso de Kotlin", "Curso introdutório", "Cursos", Status.VALIDADO, 120),
-                    Atividade("Palestra de Ética", "Evento online", "Palestras", Status.PENDENTE, 90),
-                    Atividade("Voluntariado", "Ação social em ONG", "Trabalho voluntário", Status.VALIDADO, 180)
+                    Atividade(
+                        "Visita à Fábrica da Fiat",
+                        "Visita técnica à planta industrial",
+                        "Visitas Técnicas",
+                        Status.VALIDADO,
+                        180
+                    ),
+                    Atividade(
+                        "Curso de Inglês Online",
+                        "Curso de 20h na plataforma X",
+                        "Curso de Língua Estrangeira",
+                        Status.PENDENTE,
+                        1200
+                    ),
+                    Atividade(
+                        "Voluntariado em ONG",
+                        "Apoio em atividades educacionais",
+                        "Trabalho Voluntario",
+                        Status.VALIDADO,
+                        240
+                    ),
+                    Atividade(
+                        "Mostra de Cinema Francês",
+                        "Participação em evento cultural",
+                        "Atividades Culturais",
+                        Status.PENDENTE,
+                        150
+                    )
                 )
             )
         }
-
 
         adapter = AtividadeAdapter(AtividadeRepository.listaAtividades)
         recyclerView.adapter = adapter
@@ -47,6 +71,6 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        adapter.notifyDataSetChanged() // Atualiza a lista quando voltar para esse fragment
+        adapter.notifyDataSetChanged()
     }
 }
