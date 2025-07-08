@@ -3,43 +3,81 @@
     android:id="@+id/criar_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:padding="24dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:spacing="16dp">
 
-        <EditText
-            android:id="@+id/edit_titulo"
+        <!-- Título -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Título da atividade" />
+            android:hint="Título da atividade">
 
-        <EditText
-            android:id="@+id/edit_descricao"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Descrição -->
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Descrição" />
+            android:hint="Descrição">
 
-        <EditText
-            android:id="@+id/edit_categoria"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_descricao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Categoria -->
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Categoria" />
+            android:text="Selecione a categoria da atividade"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginTop="16dp" />
 
-        <EditText
-            android:id="@+id/edit_quantidade"
+        <Spinner
+            android:id="@+id/spinner_categoria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Quantidade Horas"
-            android:inputType="number" />
+            android:layout_marginBottom="8dp" />
+
+        <!-- Quantidade -->
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Quantidade">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_quantidade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Tipo -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo de unidade"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
 
         <RadioGroup
             android:id="@+id/radio_group_tipo"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
 
             <RadioButton
                 android:id="@+id/radio_horas"
@@ -52,15 +90,24 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Minutos"
-                android:checked="true" />
+                android:checked="true"
+                android:layout_marginStart="16dp" />
         </RadioGroup>
+
+        <!-- Status -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Status"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp" />
 
         <RadioGroup
             android:id="@+id/status_group"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="8dp">
 
             <RadioButton
                 android:id="@+id/radio_pendente"
@@ -73,14 +120,19 @@
                 android:id="@+id/radio_validado"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Validado" />
+                android:text="Validado"
+                android:layout_marginStart="16dp" />
         </RadioGroup>
 
+        <!-- Botão -->
         <Button
             android:id="@+id/button_salvar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Salvar"
-            android:layout_marginTop="24dp" />
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/verde"
+            android:textColor="@android:color/white" />
+
     </LinearLayout>
 </ScrollView>
