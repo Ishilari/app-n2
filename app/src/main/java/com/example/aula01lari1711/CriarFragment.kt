@@ -15,7 +15,7 @@ class CriarFragment : Fragment() {
 
     private lateinit var tituloEdit: EditText
     private lateinit var descricaoEdit: EditText
-    private lateinit var categoriaEdit: EditText
+    private lateinit var categoriaSpinner: Spinner
     private lateinit var quantidadeEdit: EditText
     private lateinit var radioGroupTipo: RadioGroup
     private lateinit var statusGroup: RadioGroup
@@ -29,19 +29,31 @@ class CriarFragment : Fragment() {
 
         tituloEdit = view.findViewById(R.id.edit_titulo)
         descricaoEdit = view.findViewById(R.id.edit_descricao)
-        categoriaEdit = view.findViewById(R.id.edit_categoria)
+        categoriaSpinner = view.findViewById(R.id.spinner_categoria)
         quantidadeEdit = view.findViewById(R.id.edit_quantidade)
         radioGroupTipo = view.findViewById(R.id.radio_group_tipo)
         statusGroup = view.findViewById(R.id.status_group)
         salvarButton = view.findViewById(R.id.button_salvar)
 
+        // Define as categorias no Spinner
+        val categorias = listOf(
+            "Visitas Técnicas",
+            "Curso de Língua Estrangeira",
+            "Trabalho Voluntario",
+            "Atividades Culturais"
+        )
+
+        val adapter = ArrayAdapter(requireContext(), android.R.layout.simple_spinner_item, categorias)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        categoriaSpinner.adapter = adapter
+
         salvarButton.setOnClickListener {
             val titulo = tituloEdit.text.toString()
             val descricao = descricaoEdit.text.toString()
-            val categoria = categoriaEdit.text.toString()
+            val categoria = categoriaSpinner.selectedItem.toString()
             val quantidadeStr = quantidadeEdit.text.toString()
 
-            if (titulo.isEmpty() || descricao.isEmpty() || categoria.isEmpty() || quantidadeStr.isEmpty()) {
+            if (titulo.isEmpty() || descricao.isEmpty() || quantidadeStr.isEmpty()) {
                 Toast.makeText(requireContext(), "Preencha todos os campos", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
@@ -70,10 +82,10 @@ class CriarFragment : Fragment() {
             // Limpa os campos
             tituloEdit.text.clear()
             descricaoEdit.text.clear()
-            categoriaEdit.text.clear()
             quantidadeEdit.text.clear()
             radioGroupTipo.clearCheck()
             statusGroup.clearCheck()
+            categoriaSpinner.setSelection(0)
         }
 
         return view
