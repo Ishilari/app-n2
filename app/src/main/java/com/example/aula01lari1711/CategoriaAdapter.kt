@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aula01lari1711.R
-import com.example.aula01lari1711.Categoria
+import com.example.aula01lari1711.models.Categoria
 
 class CategoriaAdapter(private var categorias: List<Categoria>) :
     RecyclerView.Adapter<CategoriaAdapter.CategoriaViewHolder>() {
