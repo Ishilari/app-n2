@@ -10,9 +10,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
-import com.example.aula01lari1711.BuscarFragment
-import com.example.aula01lari1711.CriarFragment
-import com.example.aula01lari1711.HomeFragment
+import com.example.aula01lari1711.fragments.BuscarFragment
+import com.example.aula01lari1711.fragments.CriarFragment
+import com.example.aula01lari1711.fragments.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.navigation.NavigationView
 
@@ -114,21 +114,17 @@ class MainActivity : AppCompatActivity() {
 
         Toast.makeText(this, "Logout realizado com sucesso.", Toast.LENGTH_SHORT).show()
 
-        // Atualiza cabeçalho
         val headerView = navigationView.getHeaderView(0)
         headerView.findViewById<TextView>(R.id.nav_header_nome).text = "Nome do Usuário"
         headerView.findViewById<TextView>(R.id.nav_header_cargo).text = "Cargo"
 
-        // Remove e recarrega o menu inteiro
         navigationView.menu.clear()
         navigationView.inflateMenu(R.menu.drawer_menu)
 
-        // Atualiza dinamicamente de novo com base no estado atual
         updateUserHeaderAndMenu()
 
         /*
-         essa parte foi modificada algumas vezes para forçar o login e logout funcionar corretamente
-         embora, ainda seja mais simbolico, não faz diferença ter login...
+         login meramente simbolico
          */
     }
 
@@ -142,4 +138,3 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 }
-
