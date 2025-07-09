@@ -1,4 +1,4 @@
-package com.example.aula01lari1711
+package com.example.aula01lari1711.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
