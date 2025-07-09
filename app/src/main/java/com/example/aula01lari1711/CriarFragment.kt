@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
 import com.example.aula01lari1711.R
-import com.example.aula01lari1711.Atividade
-import com.example.aula01lari1711.Status
-import com.example.aula01lari1711.AtividadeRepository
+import com.example.aula01lari1711.models.Atividade
+import com.example.aula01lari1711.models.Status
+import com.example.aula01lari1711.repository.AtividadeRepository
 
 class CriarFragment : Fragment() {
 
