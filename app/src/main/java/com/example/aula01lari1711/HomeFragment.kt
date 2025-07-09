@@ -8,10 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aula01lari1711.R
-import com.example.aula01lari1711.AtividadeAdapter
-import com.example.aula01lari1711.Atividade
-import com.example.aula01lari1711.Status
-import com.example.aula01lari1711.AtividadeRepository
+import com.example.aula01lari1711.adapters.AtividadeAdapter
+import com.example.aula01lari1711.models.Atividade
+import com.example.aula01lari1711.models.Status
+import com.example.aula01lari1711.repository.AtividadeRepository
 
 class HomeFragment : Fragment() {
 
@@ -68,6 +68,8 @@ class HomeFragment : Fragment() {
 
         return view
     }
+
+    //para atualizar a lista automaticamente
 
     override fun onResume() {
         super.onResume()
