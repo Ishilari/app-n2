@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aula01lari1711.R
-import com.example.aula01lari1711.CategoriaAdapter
-import com.example.aula01lari1711.Categoria
-import com.example.aula01lari1711.AtividadeRepository
+import com.example.aula01lari1711.adapters.CategoriaAdapter
+import com.example.aula01lari1711.models.Categoria
+import com.example.aula01lari1711.repository.AtividadeRepository
 
 class BuscarFragment : Fragment() {
 
@@ -53,10 +53,10 @@ class BuscarFragment : Fragment() {
 
     private fun agruparPorCategoria(): List<Categoria> {
         return AtividadeRepository.listaAtividades
-            .groupBy { it.categoria }
+            .groupBy { it.categoria } //agrupa atividade p/categoria
             .map { (categoria, atividades) ->
-                val totalMinutos = atividades.sumOf { it.cargaHorariaMinutos }
-                Categoria(categoria, totalMinutos)
+                val totalMinutos = atividades.sumOf { it.cargaHorariaMinutos } //soma em total minutos
+                Categoria(categoria, totalMinutos) //cria um objt categoria c/soma
             }
     }
 
