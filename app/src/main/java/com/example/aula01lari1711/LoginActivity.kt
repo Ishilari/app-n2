@@ -12,7 +12,7 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var editNome: EditText
     private lateinit var editEmail: EditText
     private lateinit var editCargo: EditText
-    private lateinit var editSenha: EditText // Adicionando a senha
+    private lateinit var editSenha: EditText
     private lateinit var buttonLogin: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,26 +22,43 @@ class LoginActivity : AppCompatActivity() {
         editNome = findViewById(R.id.edit_nome)
         editEmail = findViewById(R.id.edit_email)
         editCargo = findViewById(R.id.edit_cargo)
-        editSenha = findViewById(R.id.edit_senha) // Pegando a senha
+        editSenha = findViewById(R.id.edit_senha)
         buttonLogin = findViewById(R.id.button_login)
 
         buttonLogin.setOnClickListener {
-            val nome = editNome.text.toString()
-            val email = editEmail.text.toString()
-            val cargo = editCargo.text.toString()
-            val senha = editSenha.text.toString() // Pegando o valor da senha
+            val nome = editNome.text.toString().trim()
+            val email = editEmail.text.toString().trim()
+            val cargo = editCargo.text.toString().trim()
+            val senha = editSenha.text.toString()
 
-            // Armazenando as informações no SharedPreferences
+            // Verificações
+            if (nome.isEmpty() || email.isEmpty() || cargo.isEmpty() || senha.isEmpty()) {
+                Toast.makeText(this, "Preencha todos os campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                Toast.makeText(this, "E-mail inválido", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            if (senha.length < 6) {
+                Toast.makeText(this, "A senha deve ter no mínimo 6 caracteres", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            // Salva os dados no SharedPreferences
             val prefs = getSharedPreferences("user", Context.MODE_PRIVATE)
             with(prefs.edit()) {
                 putString("nome", nome)
                 putString("email", email)
                 putString("cargo", cargo)
-                putString("senha", senha) // Salvando a senha
+                putString("senha", senha)
                 apply()
             }
 
-            finish() // Volta para a MainActivity após login
+            Toast.makeText(this, "Login realizado com sucesso!", Toast.LENGTH_SHORT).show()
+            finish() // Volta para a MainActivity
         }
     }
 }
