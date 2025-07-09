@@ -1,4 +1,4 @@
-package com.example.aula01lari1711
+package com.example.aula01lari1711.adapters
 
 import android.view.LayoutInflater
 import android.view.View
