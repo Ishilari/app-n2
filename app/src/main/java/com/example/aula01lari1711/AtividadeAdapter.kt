@@ -7,8 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.aula01lari1711.R
-import com.example.aula01lari1711.Atividade
-import com.example.aula01lari1711.Status
+import com.example.aula01lari1711.models.Atividade
+import com.example.aula01lari1711.models.Status
 
 class AtividadeAdapter(
     private val lista: List<Atividade>
